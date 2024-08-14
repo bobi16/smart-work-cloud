@@ -2,15 +2,118 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.3.2</version>
+  </parent>
+
   <groupId>com.ibase</groupId>
   <artifactId>smart-work-cloud</artifactId>
-  <version>1.0.0</version>
+  <version>${project.build.version}</version>
   <packaging>pom</packaging>
+
+  <modules>
+      <module>smart-work-cloud-common</module>
+      <module>smart-work-cloud-auth</module>
+  </modules>
 
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <project.build.version>1.0.0</project.build.version>
+
+    <jackson.version>2.17.0</jackson.version>
+    <lombok.version>1.18.32</lombok.version>
+    <mybatis.plus.version>3.5.7</mybatis.plus.version>
+    <mybatis.spring.version>3.0.3</mybatis.spring.version>
+    <dynamic.datasource.version>4.3.0</dynamic.datasource.version>
+    <Hikari.version>5.1.0</Hikari.version>
+    <mysql.connector.version>8.0.33</mysql.connector.version>
+    <commons-lang3.version>3.14.0</commons-lang3.version>
   </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-annotations</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>${mybatis.plus.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>dynamic-datasource-spring-boot3-starter</artifactId>
+        <version>${dynamic.datasource.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.zaxxer</groupId>
+        <artifactId>HikariCP</artifactId>
+        <version>${Hikari.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.connector.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis-spring</artifactId>
+        <version>${mybatis.spring.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>com.ibase</groupId>
+        <artifactId>smart-work-cloud</artifactId>
+        <version>${project.build.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.ibase</groupId>
+        <artifactId>smart-work-cloud-common-core</artifactId>
+        <version>${project.build.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons-lang3.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
 </project>
